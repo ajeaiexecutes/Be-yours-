@@ -10,14 +10,16 @@ import { logginContext } from '../../context/LogginContext';
 const UserLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const {setIsLogged}=useContext(logginContext)
   
-
+  const navigate = useNavigate();
+  
   async function handleLogin(e) {
     e.preventDefault();
 
     try {
+      setLoading(true);
       const res = await api.post("/login", { email, password });
       console.log("Response:", res);
       setIsLogged(true);
@@ -72,7 +74,7 @@ const UserLogin = () => {
           <button
             type="submit"
             className="w-full bg-black text-white py-2 rounded-md hover:bg-gray-400"          >
-            Login
+            {loading ? "Logging in..." : "Login"}
           </button>
         </form>
 

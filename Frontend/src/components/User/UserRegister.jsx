@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../axios/axios";
 import { toast } from "react-toastify";
+import { logginContext,dropDown } from "../../context/LogginContext";
 
 const UserRegister = () => {
 
@@ -16,6 +17,8 @@ const UserRegister = () => {
 
   const [validation, setValidation] = useState({});
   const [loading, setLoading] = useState(false);
+  const {setIsLogged}=useContext(logginContext)
+  const {setOpen}=useContext(dropDown)
   
 
   //handle input change
@@ -67,6 +70,7 @@ const UserRegister = () => {
   //handle for submit
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLogged(true)
     const validator = validate();
     
     setValidation(validator);
@@ -92,7 +96,9 @@ const UserRegister = () => {
       
       
       alert("registration sucessfull");
+      setOpen(false);
       navigate("/")
+
         toast("registration sucessfull,You are logged in.")
     } catch (error) {
       console.log("error",error.response.data.mess);
