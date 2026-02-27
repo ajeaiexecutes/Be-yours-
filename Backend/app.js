@@ -12,9 +12,9 @@ import mongoose from "mongoose";
 
 const app = express();
 
- async function connectDB(){
+async function connectDB(){
 try{
-	await mongoose.connect(process.env.MONGO_URI);
+	await mongoose.connect(process.env.MONGO_URI || "mongodb+srv://ajaydevxtra_db_user:ajeai@cluster0.7btn7gp.mongodb.net/Thrifts");
 	console.log('mongo db connected');
 }
 

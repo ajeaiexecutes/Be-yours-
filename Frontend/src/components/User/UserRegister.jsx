@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../axios/axios";
+import { toast } from "react-toastify";
 
 const UserRegister = () => {
 
@@ -91,8 +92,8 @@ const UserRegister = () => {
       
       
       alert("registration sucessfull");
-      navigate("/login")
-
+      navigate("/")
+        toast("registration sucessfull,You are logged in.")
     } catch (error) {
       console.log("error",error.response.data.mess);
       alert(error.response.data.mess);
@@ -177,6 +178,7 @@ const UserRegister = () => {
           <button
             type="submit"
             className="w-full bg-black text-white py-2 rounded-md hover:bg-gray-400"
+          
           >
             {loading?"Registering..":"Register"}
           </button>

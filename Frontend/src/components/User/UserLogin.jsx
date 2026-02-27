@@ -11,7 +11,7 @@ const UserLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const {isLogged,setIsLogged}=useContext(logginContext)
+  const {setIsLogged}=useContext(logginContext)
   
 
   async function handleLogin(e) {
@@ -29,16 +29,16 @@ const UserLogin = () => {
     }
   }
  
-  async function handleLogout() {
-    try {
-      const res = await api.post("/logout")
-      console.log(res)
-      toast.success("logout sucessfull")
-    } catch (error) {
-      toast.error("logout failed")
-      console.log(error)
-    }
-  }
+  // async function handleLogout() {
+  //   try {
+  //     const res = await api.post("/logout")
+  //     console.log(res)
+  //     toast.success("logout sucessfull")
+  //   } catch (error) {
+  //     toast.error("logout failed")
+  //     console.log(error)
+  //   }
+  // }
   return (
    <div className="flex items-center  justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-8 rounded-xl shadow-md w-100">
