@@ -7,7 +7,7 @@ import Footer from './components/UserInterface/Footer'
 const Layout = () => {
     
   return (
-    <div className="min-h-screen flex">
+    <div className="min-h-screen flex flex-col">
           <Navbar />
           <Outlet />
           <Footer/>
