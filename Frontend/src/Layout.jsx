@@ -7,7 +7,7 @@ import Footer from './components/UserInterface/Footer'
 const Layout = () => {
     
   return (
-    <div className=flex flec-col>
+    <div className="flex flec-col">
           <Navbar />
           <Outlet />
           <Footer/>
