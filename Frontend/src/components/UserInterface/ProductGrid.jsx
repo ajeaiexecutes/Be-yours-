@@ -32,17 +32,17 @@ const ProductGrid = () => {
   
     
   return (
-        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 md:px-12 py-6 ">
+        <div className="grid place-items-center sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 lg:place-items-center gap-6 px-4  py-6 ">
       
       { products.map((item) => (
-        <div key={item._id} onClick={()=>navigate(`/productDetails/${item._id}`)} className="group border border-gray-300 p-2">
+        <div key={item._id} onClick={()=>navigate(`/productDetails/${item._id}`)} className=" w-fit group border border-gray-300 p-2">
           
           {/* Product Image */}
-          <div className="w-full overflow-hidden rounded-md">
+          <div className="w-fit overflow-hidden rounded-md">
             <img
               src={`${API_URL}${item.image}`}
               alt={item.name}
-              className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+              className="w-fit h-90 object-cover group-hover:scale-105 transition-transform duration-500"
               
               
             />
@@ -76,12 +76,7 @@ const ProductGrid = () => {
         </div>
       ))}
 
-      {/* Dots under images (just example) */}
-      <div className="col-span-full flex justify-center mt-4 gap-2">
-        <div className="w-2 h-2 bg-black rounded-full"></div>
-        <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-        <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-      </div>
+      
 
     </div>
 
