@@ -1,4 +1,4 @@
-import React, { useState,useContext } from "react";
+import { useContext } from "react";
 import { ShoppingCart,User,ChevronDown } from "lucide-react"; // lightweight icon
 import { Link, useNavigate } from "react-router-dom";
 import Categories from "../UserInterface/Categories";
