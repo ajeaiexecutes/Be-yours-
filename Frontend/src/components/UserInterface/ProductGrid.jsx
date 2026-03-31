@@ -32,10 +32,10 @@ const ProductGrid = () => {
   
     
   return (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-6 px-4 md:px-12 py-6 ">
+        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 md:px-12 py-6 ">
       
       { products.map((item) => (
-        <div key={item._id} onClick={()=>navigate(`/productDetails/${item._id}`)} className="group border-b border-gray-300 pb-3">
+        <div key={item._id} onClick={()=>navigate(`/productDetails/${item._id}`)} className="group border border-gray-300 p-2">
           
           {/* Product Image */}
           <div className="w-full overflow-hidden rounded-md">
@@ -50,7 +50,7 @@ const ProductGrid = () => {
 
           {/* Rating */}
           <div className="flex items-center mt-2">
-            <span className="text-yellow-500 text-sm">★</span>
+            <span className="text-yellow-500 text-sm">★★★★★</span>
             <span className="ml-1 text-sm font-medium">{item.rating}</span>
             <span className="ml-1 text-xs text-gray-500">({5})</span>
           </div>
@@ -70,6 +70,9 @@ const ProductGrid = () => {
               {item.oldPrice}
             </span>
           </div>
+          <button onClick={()=>navigate(`/productDetails/${item._id}`)}  type="button" className="w-full bg-white text-black py-3 rounded-md font-medium tracking-wide border border-gray-300 hover:text-white hover:bg-black transition duration-400 ease-in-out">
+        View Details
+      </button>
         </div>
       ))}
 

@@ -9,7 +9,7 @@ const Dashboard = () => {
 
   async function handleLogout(){
     try {
-      await axios.post('/logout',
+      await api.post('/logout',
         {},
         { withCredentials: true });
       
