@@ -1,25 +1,34 @@
-import React, { useEffect, useState } from 'react'
-import api from '../../axios/axios'
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import useFetch from '../../hooks/useFetch';
+import Spinner from './Spinner';
 
 
 const ProductGrid = () => {
-  const [products, setProduct] = useState([]);
+  // const [products, setProduct] = useState([]);
   const navigate = useNavigate();
 
+  const {data:products,loading,error}=useFetch('/products')
+
     const API_URL = import.meta.env.VITE_API_URL;
+
+    if(loading){
+      return <Spinner/>
+    }
+
+    if(error)return toast.error("something went wrong")
+
     //usequery
-    useEffect(() => {
+    // useEffect(() => {
         
-        api.get("/products")
-            .then((res) => {
-            setProduct(res.data.data)
-        }
-        )
-        .catch((error)=>console.log(error)
-        )
-    }, [])
+    //     api.get("/products")
+    //         .then((res) => {
+    //         setProduct(res.data.data)
+    //     }
+    //     )
+    //     .catch((error)=>console.log(error)
+    //     )
+    // }, [])
   
     
   return (

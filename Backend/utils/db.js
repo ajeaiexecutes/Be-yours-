@@ -1,8 +1,6 @@
-// import dotenv from "dotenv"
-// dotenv.config();
+
 import mongoose from "mongoose";
 
-//database creation
 export async function connectDB() {
     try {
         await mongoose.connect(process.env.MONGO_URI
